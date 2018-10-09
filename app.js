@@ -4,6 +4,7 @@ const request      = require('request');
 const bodyParser   = require('body-parser');
 const port         = process.env.PORT || 8000;
 const requests     = require('./requests.js')
+const firebase     = require('./models/firebase.js')
 
 
 app.get('/', function(req, res){
@@ -15,7 +16,7 @@ app.get('/api', function(req, res){
     if(!err && resp.statusCode == 200) {
             var parsedData = JSON.parse(body);
             res.send(parsedData);
-            console.log(parsedData);
+            firebase.saveData(parsedData);
         }
   })
 })
