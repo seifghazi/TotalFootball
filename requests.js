@@ -1,13 +1,16 @@
-const apiKey       = require('./config/config.js');
+const config       = require('./config/config.js');
 const url          = 'https://api.football-data.org/v2/competitions/CL/matches';
 
 var options = {
   url: url,
   headers: {
-    'X-Auth-Token': apiKey.apiKey
+    'X-Auth-Token': config.apiKey
   }
 };
 
+
+
 module.exports = {
-  options: options
+  options: options,
+
 }
