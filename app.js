@@ -5,6 +5,7 @@ const bodyParser   = require('body-parser');
 const port         = process.env.PORT || 8000;
 const requests     = require('./requests.js')
 
+
 app.get('/', function(req, res){
   res.send('HOME PAGE');
 })
@@ -18,8 +19,6 @@ app.get('/api', function(req, res){
         }
   })
 })
-
-
 
 app.listen(port, function(){
   console.log('The magic happens on port: ' + port);
