@@ -1,4 +1,4 @@
-const apiKey    = require('./config.js');
+const apiKey       = require('./config.js');
 const url          = 'https://api.football-data.org/v2/competitions/CL/matches';
 
 var options = {
