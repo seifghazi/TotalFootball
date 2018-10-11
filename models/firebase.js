@@ -8,10 +8,10 @@ firebase.initializeApp(config.firebaseConfig);
 var database = firebase.database();
 
 //Reference to Teams
-var teams = database.ref("Teams");
+var teams = database.ref().child('Teams');
 
-function saveData(data) {
-  teams.set({data});
+function saveData(league) {
+  teams.set({league});
 }
 
 module.exports = {
