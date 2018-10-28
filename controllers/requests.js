@@ -1,15 +1,34 @@
 const config       = require('../config/config.js');
-const url          = 'https://api.football-data.org/v2/teams';
+const request      = require('request')
+//const url          = 'https://api.football-data.org/v2/teams';
 
-var options = {
-  url: url,
-  headers: {
-    'X-Auth-Token': config.apiKey
-  }
-};
+
+// let options = {
+//   url: url,
+//   headers: {
+//     'X-Auth-Token': config.apiKey
+//   }
+// };
+
+function apiCall() {
+  return new Promise((res, rej) => {
+    request({url: 'https://api.football-data.org/v2/competitions/'+ 'PD', headers:{'X-Auth-Token': config.apiKey}}, function(err, resp, body){
+      if(!err && resp.statusCode == 200) {
+        let parsedData = JSON.parse(body);
+        // console.log(parsedData)
+        res(parsedData)
+        //firebase.saveData(parsedData);
+      } else {
+        rej()
+        throw new Error(err)
+      }
+    })
+})
+
+}
 
 
 module.exports = {
-  options: options,
-
+  //   options: options,
+  apiCall: apiCall
 }
