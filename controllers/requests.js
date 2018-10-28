@@ -10,9 +10,9 @@ const request      = require('request')
 //   }
 // };
 
-function apiCall() {
+function apiCall(league) {
   return new Promise((res, rej) => {
-    request({url: 'https://api.football-data.org/v2/competitions/'+ 'PD', headers:{'X-Auth-Token': config.apiKey}}, function(err, resp, body){
+    request({url: 'https://api.football-data.org/v2/competitions/'+ league, headers:{'X-Auth-Token': config.apiKey}}, function(err, resp, body){
       if(!err && resp.statusCode == 200) {
         let parsedData = JSON.parse(body);
         // console.log(parsedData)

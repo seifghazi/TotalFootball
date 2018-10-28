@@ -21,9 +21,13 @@ app.get('/', function(req, res){
 // })
 
 app.get('/api', async (req, res) => {
-  //let league = req.query.leagueOption
-  let response = await requests.apiCall()
-  res.send(response)
+  let league = req.query.leagueOption
+  if (league) {
+    let response = await requests.apiCall(league)
+    res.send(response)
+  } else {
+    res.redirect('/request')
+  }
 })
 
 app.get("/request", function(req, res){
