@@ -1,9 +1,8 @@
 const express      = require('express');
 const app          = express();
-const request      = require('request');
 const bodyParser   = require('body-parser');
 const port         = process.env.PORT || 8000;
-const requests     = require('./controllers/requests.js')
+const requests     = require('./controllers/requests_controller.js')
 const firebase     = require('./models/firebase.js')
 
 app.use(bodyParser.urlencoded({extended: true}));
