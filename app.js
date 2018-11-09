@@ -2,14 +2,17 @@ const express      = require('express');
 const app          = express();
 const bodyParser   = require('body-parser');
 const port         = process.env.PORT || 8000;
-const requests     = require('./controllers/requests_controller.js')
-const firebase     = require('./models/firebase.js')
+const path         = require('path')
 
+//required for body-parser
 app.use(bodyParser.urlencoded({extended: true}));
+
+//use public dir for static files
+app.use(express.static(__dirname + '/public'))
 
 
 app.get('/', function(req, res){
-  res.send("Home Page");
+  res.render('login.ejs');
 })
 
 // app.post('/api', function(req, res){

@@ -1,21 +1,22 @@
-const firebase     = require('firebase');
-const config       = require('../config/config.js');
+const firebaseSetup = require('firebase');
+const config        = require('../config/config.js');
 
 //Initialize Firebase
-firebase.initializeApp(config.firebaseConfig);
+const firebase = firebaseSetup.initializeApp(config.firebaseConfig);
 
-//Reference to database
-var database = firebase.database();
-
-//Reference to Teams
-var teams = database.ref().child('Teams');
-
-function saveData(league) {
-  teams.set({league});
-}
+// //Reference to database
+// var database = firebase.database();
+//
+// //Reference to Teams
+// var teams = database.ref().child('Teams');
+//
+// function saveData(league) {
+//   teams.set({league});
+// }
 
 module.exports = {
-  saveData: saveData
+  // saveData: saveData,
+  firebase: firebase
 };
 
 
