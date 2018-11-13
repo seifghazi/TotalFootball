@@ -10,13 +10,13 @@ const LocalStrategy = require('passport-local')
 const authRoutes    = require('./routes/auth')
 const dataRoutes    = require('./routes/data')
 
-
+// Connect to DB
 mongoose.connect('mongodb://localhost/app');
 
-//required for body-parser
+// required for body-parser
 app.use(bodyParser.urlencoded({extended: true}));
 
-//use public dir for static files
+// use public dir for static files
 app.use(express.static(__dirname + '/public'))
 
 // Passport Config
