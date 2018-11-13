@@ -11,24 +11,42 @@ const request      = require('request')
 // };
 
 function apiCall(league) {
-  return new Promise((res, rej) => {
-    request({url: 'https://api.football-data.org/v2/competitions/'+ league, headers:{'X-Auth-Token': config.apiKey}}, function(err, resp, body){
+  // API call for all teams
+  const teams =  new Promise((res, rej) => {
+    request({url: `https://api.football-data.org/v2/competitions/${league}/teams`, headers:{'X-Auth-Token': config.apiKey}}, (err, resp, body) => {
       if(!err && resp.statusCode == 200) {
-        let parsedData = JSON.parse(body);
-        // console.log(parsedData)
-        res(parsedData)
-        //firebase.saveData(parsedData);
+        let teamData = JSON.parse(body);
+        res(teamData)
       } else {
-        rej()
-        throw new Error(err)
+        rej();
+        throw new Error(err);
       }
     })
-})
-
+  })
+  // API call for top scorers
+  const scorers = new Promise((res, rej) => {
+    request({url: `https://api.football-data.org/v2/competitions/${league}/scorers`, headers:{'X-Auth-Token': config.apiKey}}, (err, resp, body) => {
+      if(!err && resp.statusCode == 200) {
+        let scorersData = JSON.parse(body);
+        res(scorersData);
+      } else {
+        rej();
+        throw new Error(err);
+      }
+    })
+  })
+  const result =
+  Promise.all([teams, scorers])
+  .then((result) => {
+    leagueObject = {};
+    leagueObject.teams = result[0].teams[0];
+    leagueObject.scorers = result[1].scorers[0];
+    return leagueObject;
+  })
+  return result;
 }
 
 
-module.exports = {
-  //   options: options,
-  apiCall: apiCall
+module.exports = { 
+  apiCall
 }

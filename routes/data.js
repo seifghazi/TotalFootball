@@ -5,8 +5,8 @@ var requests    = require('../controllers/requests_controller');
 router.get('/api', async function(req, res){
   let league = req.query.leagueOption
   if (league) {
-    let response = await requests.apiCall(league)
-    res.send(response)
+    let response =  await requests.apiCall(league)
+    res.render('league.ejs', {response: response});
   } else {
     res.redirect('/request')
   }
