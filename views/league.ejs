@@ -1,2 +1,15 @@
-<h1><%=JSON.stringify(response.teams.crestUrl)%></h1>
-<img src="<%=response.teams.crestUrl%>">
+<% include partials/header %>
+
+
+
+<div class='parent'>
+  <% teams.forEach((team) => { %>
+      <div class="child">
+        <%= team.name %>
+        <br />
+        <img src="<%=team.crestUrl%>">
+      </div>
+  <%})%>
+</div>
+
+<% include partials/footer %>

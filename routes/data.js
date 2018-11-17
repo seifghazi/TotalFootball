@@ -6,7 +6,7 @@ router.get('/api', async function(req, res){
   let league = req.query.leagueOption
   if (league) {
     let response =  await requests.apiCall(league)
-    res.render('league.ejs', {response: response});
+    res.render('league.ejs', {teams: response.teamList.teams});
   } else {
     res.redirect('/request')
   }
