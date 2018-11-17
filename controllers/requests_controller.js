@@ -54,10 +54,28 @@ function apiCall(league) {
       leagueObject.scorersList = result[1];
       return leagueObject;
     })
-  // return result;
 }
 
+function getTeamData(teamID) {
+  return new Promise( (res, rej) => {
+    request({
+        url: `https://api.football-data.org/v2/teams/${teamID}`,
+        headers: {
+          'X-Auth-Token': config.apiKey
+        }
+      },
+    (err, resp, teamData) => {
+      if(!err && resp.statusCode == 200) {
+        res(teamData);
+      } else {
+        rej();
+        throw new Error(err);
+      }
+    })
+  })
+}
 
 module.exports = {
-  apiCall
+  apiCall,
+  getTeamData
 }

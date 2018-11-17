@@ -2,7 +2,7 @@ var express     = require('express');
 var router      = express.Router();
 var requests    = require('../controllers/requests_controller');
 
-router.get('/api', async function(req, res){
+router.get('/league', async function(req, res){
   let league = req.query.leagueOption
   if (league) {
     let response =  await requests.apiCall(league)
@@ -12,8 +12,14 @@ router.get('/api', async function(req, res){
   }
 })
 
-router.get("/request", isLoggedIn, function(req, res){
-  res.render("request.ejs")
+router.get('/request', isLoggedIn, function(req, res){
+  res.render('request.ejs')
+})
+
+router.get('/league/:teamID', async function(req, res) {
+  let teamID = req.params.teamID;
+  let teamData = await requests.getTeamData(teamID);
+  res.send('team data');
 })
 
 function isLoggedIn(req, res, next){

@@ -4,7 +4,7 @@
 
 <div class='parent'>
   <% teams.forEach((team) => { %>
-      <div class="child">
+      <div class="child" onclick="window.location.href= 'league/<%=team.id%>'">
         <%= team.name %>
         <br />
         <img src="<%=team.crestUrl%>">
