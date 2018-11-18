@@ -21,3 +21,12 @@
   max-height: 50px;
   margin: auto;
 }
+
+canvas {
+  width: 500px;
+  height: 500px;
+}
+
+h1 {
+  margin: auto;
+}

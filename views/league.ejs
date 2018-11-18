@@ -1,10 +1,21 @@
 <% include partials/header %>
+<p id="scorers" style="display:none"><%=JSON.stringify(chartData)%></p>
+
+
+
+<h1><%=league.competition.name%></h1>
+
+
+<div>
+  <canvas id="scorersChart" width="200" height="200"></canvas>
+</div>
+
 
 
 
 <div class='parent'>
   <% teams.forEach((team) => { %>
-      <div class="child" onclick="window.location.href= 'league/<%=team.id%>'">
+      <div class="child" onclick="window.location.href='league/<%=team.id%>'">
         <%= team.name %>
         <br />
         <img src="<%=team.crestUrl%>">

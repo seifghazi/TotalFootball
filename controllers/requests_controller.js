@@ -1,5 +1,5 @@
 const config = require('../config/config.js');
-const request = require('request')
+const request = require('request');
 //const url          = 'https://api.football-data.org/v2/teams';
 
 
