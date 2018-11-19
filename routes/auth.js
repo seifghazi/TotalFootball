@@ -1,6 +1,6 @@
 var express     = require('express');
 var router      = express.Router();
-var passport    = require('passport'); 
+var passport    = require('passport');
 const User      = require('../models/users.js');
 
 
@@ -8,7 +8,6 @@ const User      = require('../models/users.js');
 // AUTH ROUTES
 //===================
 router.get('/', function(req, res){
-  console.log(req.user)
   res.render('home.ejs')
 })
 

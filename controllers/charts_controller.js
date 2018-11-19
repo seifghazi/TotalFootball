@@ -38,6 +38,8 @@ function scorersChartSetup(scorersList) {
       }]
     },
     options: {
+      responsive: true,
+      maintainAspectRation: false,
       scales: {
         yAxes: [{
           ticks: {
@@ -47,8 +49,6 @@ function scorersChartSetup(scorersList) {
       }
     }
   }
-  console.log('chartData: ' + chartDataObject.data.labels);
-  console.log('chartData: ' + typeof chartDataObject.data.datasets[0].data[0]);
   return chartDataObject;
 }
 

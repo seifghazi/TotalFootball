@@ -9,6 +9,7 @@ const passport      = require('passport')
 const LocalStrategy = require('passport-local')
 const authRoutes    = require('./routes/auth')
 const dataRoutes    = require('./routes/data')
+const cors          = require('cors');
 
 // Connect to DB
 mongoose.connect('mongodb://localhost/app');
@@ -37,6 +38,8 @@ app.use(function(req, res, next){
   res.locals.currentUser = req.user;
   next();
 })
+
+
 
 // Routes
 app.use(authRoutes);
