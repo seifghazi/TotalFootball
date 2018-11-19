@@ -9,7 +9,6 @@ const passport      = require('passport')
 const LocalStrategy = require('passport-local')
 const authRoutes    = require('./routes/auth')
 const dataRoutes    = require('./routes/data')
-const cors          = require('cors');
 
 // Connect to DB
 mongoose.connect('mongodb://localhost/app');
