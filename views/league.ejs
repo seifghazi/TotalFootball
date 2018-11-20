@@ -6,12 +6,56 @@
 <h1><%=league.competition.name%></h1>
 
 
+<div class="header">
+  <div class="subHeader">
+    <span class="icon">
+      <i class="fas fa-clock"></i>
+    </span>
+    <div class="name">
+      <strong>Matchday</strong>
+      <div class="count">
+        <%=league.season.currentMatchday%>
+      </div>
+    </div>
+  </div>
+  <div class="subHeader">
+    <div class="icon">
+      <i class="fas fa-clock"></i>
+    </div>
+    <div class="name">
+      <strong>Matchday</strong>
+      <div class="count">
+        <%=league.season.currentMatchday%>
+      </div>
+    </div>
+  </div>
+  <div class="subHeader">
+    <div class="icon">
+      <i class="fas fa-clock"></i>
+    </div>
+    <div class="name">
+      <strong>Matchday</strong>
+      <div class="count">
+        <%=league.season.currentMatchday%>
+      </div>
+    </div>
+  </div>
+  <div class="subHeader">
+    <div class="icon">
+      <i class="fas fa-clock"></i>
+    </div>
+    <div class="name">
+      <strong>Matchday</strong>
+      <div class="count">
+        <%=league.season.currentMatchday%>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="chartContainer">
   <canvas id="scorersChart" width="200" height="200"></canvas>
 </div>
-
-
-
 
 <div class='parent'>
   <% teams.forEach((team) => { %>

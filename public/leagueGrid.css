@@ -23,11 +23,27 @@
   margin: auto;
 }
 
-#chartContainer{
+#chartContainer {
   width: 200px;
   height: 200px;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.subHeader {
+  width: 25%;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.icon {
+  margin-right: 10px;
 }
