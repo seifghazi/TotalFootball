@@ -33,7 +33,7 @@ router.get('/login', function(req, res) {
   res.render('login.ejs');
 })
 
-router.post('/login', passport.authenticate('local',{ successRedirect: '/', failureRedirect: '/login'}))
+router.post('/login', passport.authenticate('local',{ successRedirect: '/navbar', failureRedirect: '/login'}))
 
 router.get('/logout', function(req, res){
   req.logout();

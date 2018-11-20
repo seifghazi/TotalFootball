@@ -1,9 +1,10 @@
 .parent {
   display: grid;
-  grid-template-columns: 300px 300px 300px;
+  grid-template-columns: 25% 25% 25% 25%;
   grid-auto-rows: 100px;
   grid-gap: 15px;
-  margin-left: 175px;
+  padding-right: 5%;
+  /* margin-left: 175px; */
 }
 
 .child {

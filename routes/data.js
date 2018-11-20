@@ -19,6 +19,14 @@ router.get('/league', async function(req, res){
   }
 })
 
+router.get('/home', (req, res) => {
+  res.send('Home');
+})
+
+router.get('/navbar', (req, res) => {
+  res.render('navbar.ejs', {currentUser: req.user});
+})
+
 router.get('/request', isLoggedIn, function(req, res){
   res.render('request.ejs')
 })
