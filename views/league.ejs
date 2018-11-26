@@ -1,9 +1,14 @@
 <% include partials/navHeader %>
-<p id="scorers" style="display:none"><%=JSON.stringify(chartData)%></p>
+<p id="scorers" style="display:none">
+  <%=JSON.stringify(chartData)%>
+</p>
 
 
 
-<h1><%=league.competition.name%></h1>
+<h1>
+  <%=league.competition.name%>
+</h1>
+<hr />
 
 
 <div class="header">
@@ -20,51 +25,109 @@
   </div>
   <div class="subHeader">
     <div class="icon">
-      <i class="fas fa-clock"></i>
+      <i class="fas fa-trophy"></i>
     </div>
     <div class="name">
-      <strong>Matchday</strong>
+      <strong>League Leaders</strong>
       <div class="count">
-        <%=league.season.currentMatchday%>
+        <%=standings.standings[0].table[0].team.name%>
       </div>
     </div>
   </div>
   <div class="subHeader">
     <div class="icon">
-      <i class="fas fa-clock"></i>
+      <i class="fas fa-futbol"></i>
     </div>
     <div class="name">
-      <strong>Matchday</strong>
+      <strong>Top Scorer</strong>
       <div class="count">
-        <%=league.season.currentMatchday%>
-      </div>
-    </div>
-  </div>
-  <div class="subHeader">
-    <div class="icon">
-      <i class="fas fa-clock"></i>
-    </div>
-    <div class="name">
-      <strong>Matchday</strong>
-      <div class="count">
-        <%=league.season.currentMatchday%>
+        <%=chartData.data.labels[0]%>
       </div>
     </div>
   </div>
 </div>
 
-<div id="chartContainer">
-  <canvas id="scorersChart" width="200" height="200"></canvas>
+<div class="leagueTable">
+  <h3>
+    Standings
+  </h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Pos</th>
+        <th scope="col">Team</th>
+        <th scope="col">Pts</th>
+        <th scope="col">W</th>
+        <th scope="col">D</th>
+        <th scope="col">L</th>
+        <th scope="col">GF</th>
+        <th scope="col">GA</th>
+        <th scope="col">GD</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <%standings.standings[0].table.forEach((team) => {%>
+      <tr>
+        <th scope="row">
+          <%=team.position%>
+        </th>
+        <td>
+          <%=team.team.name%>
+        </td>
+        <td>
+          <%=team.points%>
+        </td>
+        <td>
+          <%=team.won%>
+        </td>
+        <td>
+          <%=team.draw%>
+        </td>
+        <td>
+          <%=team.lost%>
+        </td>
+        <td>
+          <%=team.goalsFor%>
+        </td>
+        <td>
+          <%=team.goalsAgainst%>
+        </td>
+        <td>
+          <%=team.goalDifference%>
+        </td>
+
+      </tr>
+      <%})%>
+    </tbody>
+  </table>
 </div>
 
-<div class='parent'>
-  <% teams.forEach((team) => { %>
-      <div class="child" onclick="window.location.href='league/<%=team.id%>'">
-        <%= team.name %>
-        <br />
-        <img src="<%=team.crestUrl%>">
-      </div>
-  <%})%>
+<div class="Teams">
+  <h3>
+  Teams
+  </h3>
+  <div class='parent'>
+    <% teams.forEach((team) => { %>
+    <div class="child" onclick="window.location.href='league/<%=team.id%>'">
+      <%= team.name %>
+      <br />
+      <img src="<%=team.crestUrl%>">
+    </div>
+    <%})%>
+  </div>
 </div>
+
+
+<div class="Scorers">
+  <h3>
+   Top Scorers
+  </h3>
+  <div id="chartContainer">
+    <canvas id="scorersChart"></canvas>
+  </div>
+</div>
+
+
 
 <% include partials/navFooter %>

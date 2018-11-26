@@ -4,7 +4,7 @@ var fs          = require('fs');
 var requests    = require('../controllers/requests_controller');
 var charts      = require('../controllers/charts_controller');
 
-
+//TODO: Abstract routes
 router.get('/league', async function(req, res){
   let league = req.query.leagueOption
   // If route is accessed without selecting league, redirect to league selection page
@@ -13,7 +13,7 @@ router.get('/league', async function(req, res){
     let response =  await requests.apiCall(league)
     // Setup chart for league top scorers
     let chartData = await charts.scorersChartSetup(response.scorersList.scorers)
-    res.render('league.ejs', {teams: response.teamList.teams, chartData: chartData, league: response.teamList});
+    res.render('league.ejs', {teams: response.teamList.teams, chartData: chartData, league: response.teamList, standings: response.standings});
   } else {
     res.redirect('/request')
   }

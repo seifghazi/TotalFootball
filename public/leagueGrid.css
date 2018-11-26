@@ -1,9 +1,10 @@
 .parent {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: 100px;
   grid-gap: 15px;
   padding-right: 5%;
+  padding-top: 5%;
   /* margin-left: 175px; */
 }
 
@@ -11,7 +12,7 @@
   display: grid;
   color: black;
   background-color: white;
-  border: 5px solid black;
+
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -24,8 +25,8 @@
 }
 
 #chartContainer {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  padding-left: 5%;
 }
 
 h1 {
@@ -39,11 +40,26 @@ h1 {
   text-align: center;
 }
 .subHeader {
-  width: 25%;
+  width: 33%;
   font-size: 2em;
-  font-weight: 300;
+  font-weight: 150;
 }
 
 .icon {
   margin-right: 10px;
+}
+
+hr {
+  width: 300px;
+  background-color: black;
+}
+
+h3 {
+  padding-top: 5%;
+
+}
+
+table {
+  text-align: center;
+  width: 100%
 }

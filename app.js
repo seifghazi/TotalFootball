@@ -38,8 +38,6 @@ app.use(function(req, res, next){
   next();
 })
 
-
-
 // Routes
 app.use(authRoutes);
 app.use(dataRoutes);
