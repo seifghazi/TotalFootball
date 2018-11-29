@@ -12,7 +12,6 @@
   display: grid;
   color: black;
   background-color: white;
-
   justify-content: center;
   align-items: center;
   cursor: pointer;
@@ -39,6 +38,7 @@ h1 {
   flex-wrap: wrap;
   text-align: center;
 }
+
 .subHeader {
   width: 33%;
   font-size: 2em;
@@ -56,10 +56,58 @@ hr {
 
 h3 {
   padding-top: 5%;
-
 }
 
 table {
   text-align: center;
   width: 100%
+}
+
+/*//////////// REQUEST PAGE ////////////*/
+input[type=radio] {
+  display: none;
+}
+
+input[type=radio]+label {
+  background: #ffffff;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  padding: 0 0 0 0px;
+  /* margin: 100px; */
+  border: 5px solid white;
+}
+
+input[type=radio]:checked + label > .selection {
+  border: 2px solid red;
+  border-radius: 30px;
+  padding: 0 0 0 0px;
+  ;
+}
+
+label {
+  height: 200px;
+}
+
+.flexRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 100px;
+  grid-gap: 15px;
+}
+
+
+
+
+
+
+
+.buttonContainer {
+  position: relative;
+}
+
+button[type="submit"] {
+  position: relative;
+  bottom: -150px;
+  right: -800px;
 }

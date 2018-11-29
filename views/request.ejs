@@ -1,16 +1,44 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Request</title>
-  </head>
-  <body>
-    <h1> Select a League: </h1>
-    <form method="GET" action="/league">
-      <select name="leagueOption">
-        <option name = "LaLiga" value="PD" >La Liga</option>
-      </select>
-        <input type="submit">
-    </form>
-  </body>
-</html>
+<% include partials/navHeader %>
+
+<h1> Select a League: </h1>
+<!-- <form method="GET" action="/league">
+  <select name="leagueOption">
+    <option name="LaLiga" value="PD">La Liga</option>
+  </select>
+  <input type="submit">
+</form> -->
+
+<form action="/league" method="get">
+  <div class="flexRow">
+    <div class="item">
+      <input type="radio" name="leagueOption" id="PD" value="PD" />
+      <label for="PD">
+
+          <img class="selection" src="http://a2.espncdn.com/combiner/i?img=%2Fi%2Fleaguelogos%2Fsoccer%2F500%2F15.png" style="height:200px;">
+
+      </label>
+    </div>
+    <div class="item">
+      <input type="radio" name="leagueOption" id="PL" value="PL" />
+      <label for="PL">
+
+          <img class="selection" src="https://2.bp.blogspot.com/-RqGzXExd950/V7ifrmTuTYI/AAAAAAAAQEY/ZgCeuzIxkGsPEwNLAQWSrXCsD_xkRWoLgCLcB/s1600/Premier%2BLeague.png" style="height:200px;">
+
+      </label>
+    </div>
+    <div class="item">
+      <input type="radio" name="leagueOption" id="SA" value="SA" />
+      <label for="SA">
+
+          <img class="selection" src="https://s3.amazonaws.com/tinycards/image/be33fb174a0cd5bf0fdb06835025d702" style="height:200px;">
+
+      </label>
+    </div>
+  </div>
+  <div class="buttonContainer">
+    <button type="submit" name="button" style="margin">Proceed</button>
+  </div>
+</form>
+
+
+<% include partials/navFooter %>

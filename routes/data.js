@@ -5,6 +5,10 @@ var requests    = require('../controllers/requests_controller');
 var charts      = require('../controllers/charts_controller');
 
 //TODO: Abstract routes
+router.get('/test', (req, res) => {
+  res.send('test');
+})
+
 router.get('/league', async function(req, res){
   let league = req.query.leagueOption
   // If route is accessed without selecting league, redirect to league selection page
