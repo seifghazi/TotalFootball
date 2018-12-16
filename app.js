@@ -13,11 +13,10 @@ const dataRoutes    = require('./routes/data')
 // Connect to DB
 mongoose.connect('mongodb://localhost/app');
 
-// required for body-parser
-app.use(bodyParser.urlencoded({extended: true}));
 
-// use public dir for static files
-app.use(express.static(__dirname + '/public'))
+
+
+
 
 // Passport Config
 app.use(require('express-session')({
@@ -38,9 +37,18 @@ app.use(function(req, res, next){
   next();
 })
 
+// required for body-parser
+app.use(bodyParser.urlencoded({extended: true}));
+
+// use public dir for static files
+app.use(express.static(__dirname + '/public'))
+
+
 // Routes
 app.use(authRoutes);
 app.use(dataRoutes);
+
+
 
 app.listen(port, function(){
   console.log('The magic happens on port: ' + port);

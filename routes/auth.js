@@ -8,7 +8,7 @@ const User      = require('../models/users.js');
 // AUTH ROUTES
 //===================
 router.get('/', function(req, res){
-  res.render('home.ejs')
+  res.render('landing.ejs')
 })
 
 router.get('/register', function(req, res){

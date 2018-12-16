@@ -35,10 +35,11 @@ router.get('/request', isLoggedIn, function(req, res){
   res.render('request.ejs')
 })
 
-router.get('/league/:teamID', async function(req, res) {
+router.get('/team/:teamID', async function(req, res) {
   let teamID = req.params.teamID;
-  let teamData = await requests.getTeamData(teamID);
-  res.send('team data');
+  console.log(typeof teamID);
+  // let teamData = await requests.getTeamData(teamID);
+  res.render('teamInfo.ejs');
 })
 
 function isLoggedIn(req, res, next){

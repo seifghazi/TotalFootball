@@ -59,7 +59,7 @@ function apiCall(league) {
   })
   return Promise.all([teams, scorers, standings])
     .then((result) => {
-      leagueObject = {};
+      let leagueObject = {};
       leagueObject.teamList    = result[0];
       leagueObject.scorersList = result[1];
       leagueObject.standings   = result[2];
@@ -86,7 +86,73 @@ function getTeamData(teamID) {
   })
 }
 
+function topScorers() {
+  // API call for all teams
+  const scorersPD = new Promise((res, rej) => {
+    request({
+        url: `https://api.football-data.org/v2/competitions/PD/scorers?filter=150`,
+        headers: {
+          'X-Auth-Token': config.apiKey
+        }
+      },
+      (err, resp, body) => {
+        if (!err && resp.statusCode == 200) {
+          let scorersLaLiga = JSON.parse(body);
+          res(teamData)
+        } else {
+          rej();
+          throw new Error(err);
+        }
+      })
+  })
+  // API call for top scorers
+  const scorersPL = new Promise((res, rej) => {
+    request({
+      url: `https://api.football-data.org/v2/competitions/PL/scorers?filter=150`,
+        headers: {
+          'X-Auth-Token': config.apiKey
+        }
+      },
+      (err, resp, body) => {
+        if (!err && resp.statusCode == 200) {
+          let scorersEPL = JSON.parse(body);
+          res(scorersData);
+        } else {
+          rej();
+          throw new Error(err);
+        }
+      })
+  })
+  // API call for standings
+  const scorersSA = new Promise((res, rej) => {
+    request({
+        url: `https://api.football-data.org/v2/competitions/SA/scorers?filter=150`,
+        headers: {
+          'X-Auth-Token': config.apiKey
+        }
+      },
+      (err, resp, body) => {
+        if (!err && resp.statusCode == 200) {
+          let scorersSerieA = JSON.parse(body);
+          res(scorersData);
+        } else {
+          rej();
+          throw new Error(err);
+        }
+      })
+  })
+  const scorerObject = Promise.all([scorersPD, scorersPL, scorersSA])
+    .then((result) => {
+      let scorerObject = {};
+      scorerObject.scorersPD    = result[0];
+      scorerObject.scorersPL    = result[1];
+      scorerObject.scorersSA    = result[2];
+      return scorerObject;
+    })
+}
+
 module.exports = {
   apiCall,
-  getTeamData
+  getTeamData,
+  topScorers
 }

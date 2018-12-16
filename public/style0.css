@@ -1,0 +1,118 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: white;
+  font-family: 'Roboto', sans-serif;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/226578/campnou.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.login-icon-field {
+  height: 250px;
+  width: 100%;
+  /*background-color: red;*/
+}
+
+.login {
+  max-width: 280px;
+  min-height: 700px;
+  margin: 30px auto;
+  /* background-color: #7386D5; */
+  background-color: rgba(153, 153, 249, 0.79);
+  border-radius: 20px;
+
+}
+
+.login-icon {
+  margin: 50px 65px;
+}
+
+.login-form {
+  padding: 8px 20px 20px;
+  height: 120px;
+  width: 100%;
+}
+
+.username-row {
+  position: relative;
+  height: 40px;
+  width: 245px;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
+
+input {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+input:focus  {
+  outline: none;
+  /* border-bottom: 1px solid white; */
+}
+
+
+::placeholder {
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.password-row {
+  position: relative;
+  height: 40px;
+  width: 245px;
+  border-bottom: 1px solid;
+  margin-bottom: 10px;
+}
+
+p {
+  padding-left: 5%;
+}
+
+.call-to-action {
+  margin: 22px 0;
+  height: 130px;
+  width: 100%;
+  /*background-color: blue;*/
+}
+
+label {
+    /* Other styling.. */
+    text-align: right;
+    clear: both;
+    float:left;
+    margin: 5px;
+}
+
+button {
+  display: block;
+  width: 240px;
+  height: 40px;
+  margin: 10px 20px 10px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  background-color: #3e52d8;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* button:hover {
+  background-color: #26d69a;
+} */
+/*
+button:active {
+  background  -color: #1eaa7a;
+} */
