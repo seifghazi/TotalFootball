@@ -14,7 +14,7 @@ router.get('/league', async function(req, res){
   // If route is accessed without selecting league, redirect to league selection page
   if (league) {
     // Fetch League and Scorer data
-    let response =  await requests.apiCall(league)
+    let response =  await requests.fetchLeagueData(league);
     // Setup chart for league top scorers
     let chartData = await charts.scorersChartSetup(response.scorersList.scorers)
     res.render('league.ejs', {teams: response.teamList.teams, chartData: chartData, league: response.teamList, standings: response.standings});
@@ -35,16 +35,15 @@ router.get('/request', isLoggedIn, function(req, res){
   res.render('request.ejs')
 })
 
-router.get('/team/:teamID', async function(req, res) {
-  let teamID = req.params.teamID;
-  console.log(typeof teamID);
-  // let teamData = await requests.getTeamData(teamID);
-  res.render('teamInfo.ejs');
-})
+// router.get('/team/:teamID', async function(req, res) {
+//   let teamID = req.params.teamID;
+//   console.log(typeof teamID);
+//   // let teamData = await requests.getTeamData(teamID);
+//   res.render('teamInfo.ejs');
+// })
 
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()) {
-    console.log('authenticate')
     return next();
   }
   res.redirect('/login');

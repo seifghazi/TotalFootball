@@ -1,21 +1,4 @@
-<link rel="stylesheet" href="/style0.css">
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<!-- <h1>Login!</h1>
-<form action="/login" method="POST">
-  <input type="text" name="username" placeholder="Username">
-  <input type="text" name="password" placeholder="Password">
-  <input type="submit" value="Login!">
-</form> -->
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('.container').fadeOut(1);
-    $('.container').removeClass('hidden');
-    $('.container').fadeIn(1500);
-  });
-</script>
-
+<% include partials/loginHeader %>
 <div class="container hidden">
   <div id="login" class="login">
     <div class="login-icon-field">
@@ -27,7 +10,7 @@
         </g>
       </svg>
     </div>
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" class="needs-validation" novalidate>
       <div class="login-form">
         <div class="username-row">
           <label for="username">
@@ -49,7 +32,4 @@
     </form>
   </div>
 </div>
-
-
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<% include partials/loginFooter %>

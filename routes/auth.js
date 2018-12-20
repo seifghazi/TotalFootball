@@ -33,7 +33,7 @@ router.get('/login', function(req, res) {
   res.render('login.ejs');
 })
 
-router.post('/login', passport.authenticate('local',{ successRedirect: '/navbar', failureRedirect: '/login'}))
+router.post('/login', passport.authenticate('local',{ successRedirect: '/request', failureRedirect: '/login'}))
 
 router.get('/logout', function(req, res){
   req.logout();
@@ -42,7 +42,6 @@ router.get('/logout', function(req, res){
 
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()) {
-    console.log('authenticate')
     return next();
   }
   res.redirect('/login');

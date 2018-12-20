@@ -12,21 +12,19 @@ html, body {
 .login-icon-field {
   height: 250px;
   width: 100%;
-  /*background-color: red;*/
+}
+
+.login-icon {
+  margin: 50px 65px;
 }
 
 .login {
   max-width: 280px;
   min-height: 700px;
   margin: 30px auto;
-  /* background-color: #7386D5; */
   background-color: rgba(153, 153, 249, 0.79);
   border-radius: 20px;
 
-}
-
-.login-icon {
-  margin: 50px 65px;
 }
 
 .login-form {
@@ -56,7 +54,6 @@ input {
 
 input:focus  {
   outline: none;
-  /* border-bottom: 1px solid white; */
 }
 
 
@@ -83,11 +80,9 @@ p {
   margin: 22px 0;
   height: 130px;
   width: 100%;
-  /*background-color: blue;*/
 }
 
 label {
-    /* Other styling.. */
     text-align: right;
     clear: both;
     float:left;
@@ -109,10 +104,6 @@ button {
   cursor: pointer;
 }
 
-/* button:hover {
-  background-color: #26d69a;
-} */
-/*
-button:active {
-  background  -color: #1eaa7a;
-} */
+a {
+  color: black;
+} 

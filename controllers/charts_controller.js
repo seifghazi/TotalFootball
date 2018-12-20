@@ -6,7 +6,6 @@ function scorersChartSetup(scorersList) {
     scorerNames.push(scorer.player.name);
     dataPoints.push(parseInt(scorer.numberOfGoals));
   })
-  console.log('Data ' + dataPoints)
   let chartDataObject = {
     type: 'horizontalBar',
     data: {
