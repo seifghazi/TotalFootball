@@ -40,7 +40,7 @@ function scorersChartSetup(scorersList) {
       responsive: true,
       maintainAspectRation: false,
       scales: {
-        yAxes: [{
+        xAxes: [{
           ticks: {
             beginAtZero: true
           }
