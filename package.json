@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": { "test": "node node_modules/jasmine/bin/jasmine.js" },
+  "scripts": 
+  { "test": "node node_modules/jasmine/bin/jasmine.js" 
+   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
