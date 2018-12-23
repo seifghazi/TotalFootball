@@ -1,6 +1,6 @@
 function scorersChartSetup(scorersList) {
   let scorerNames = [];
-  var dataPoints = [];
+  let dataPoints = [];
   // populate chart params with scorer data
   scorersList.forEach((scorer) => {
     scorerNames.push(scorer.player.name);
@@ -53,5 +53,5 @@ function scorersChartSetup(scorersList) {
 
 
 module.exports = {
-  scorersChartSetup: scorersChartSetup
+  scorersChartSetup
 }
