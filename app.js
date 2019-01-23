@@ -15,11 +15,7 @@ const flash         = require('connect-flash');
 mongoose.connect('mongodb://localhost/app');
 
 // Passport Config
-app.use(require('express-session')({
-  secret: "First time setting up auth using passport",
-  resave: false,
-  saveUninitialized: false
-}))
+app.use(require('express-session')(config.passportConfig));
 
 app.use(flash());
 app.use(passport.initialize());
