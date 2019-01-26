@@ -4,7 +4,8 @@ Total Football is a simple web app that aggregates and visualizes data from the 
 
 [Live Demo](https://agile-hollows-39297.herokuapp.com/)
 
-
+## Purpose
+The reason I developed this application was to get some more experience with dealing with asynchronous code, working with CSS Grid and Flexbox, and setting up user authentication. 
 ## Tools Used
 * HTML, CSS
 * Node.js 
@@ -36,3 +37,4 @@ _Folder Structure:_
 
 ## Deployment 
 The application is hosted on Heroku. 
+
